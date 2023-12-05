@@ -8,7 +8,7 @@ const button = document.querySelector(".change-color");
 const Span = document.querySelector(".color");
 
 button.addEventListener("click", () => {
-  const otherColor = getotherHexColor();
+  const otherColor = getRandomHexColor();
   document.body.style.backgroundColor = otherColor;
-  Span.textContent = otherColor;
+  span.textContent = otherColor;
 });

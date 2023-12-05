@@ -1,12 +1,12 @@
 const formulario = document.querySelector(".login-form");
 
-form.addEventListener("submit", function (alert) {
-  alert.preventDefault();
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault();
 
   const mail = form.elements.email;
   const passw = form.elements.password;
 
-  if (email === "" || password === "") {
+  if (email.value === "" || password.value === "") {
     alert("Todos los espacios deben ser rellenados");
   } else {
     const user = {
@@ -14,7 +14,7 @@ form.addEventListener("submit", function (alert) {
       password: passw.value,
     };
 
-    console.log(formData); // Muestra los datos en la consola
-    form.reset(); // Borra los valores del formulario
+    console.log(user);
+    formulario.reset();
   }
 });
