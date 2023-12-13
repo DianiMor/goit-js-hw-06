@@ -1,21 +1,23 @@
 const formulario = document.querySelector(".login-form");
-function submitForm(event) {
+
+function onFormSubmit(event) {
   event.preventDefault();
 
-  const form = Event.target;
+  const {
+    elements: { email, password },
+  } = event.currentTarget;
 
-  const mail = form.elements.email;
-  const passw = form.elements.password;
-
-  if (email.value === "" || passw.value === "") {
-    alert("Todos los espacios deben ser rellenados");
-  } else {
-    const user = {
-      email: mail.value,
-      password: passw.value,
-    };
-
-    console.log(user);
-    formulario.reset();
+  if (email.value === "" || password.value === "") {
+    return alert("Debes rellenar todos los campos del formulario");
   }
+
+  const formValue = {
+    [email.name]: email.value,
+    [password.name]: password.value,
+  };
+
+  console.log("formValue:", formValue);
+  event.currentTarget.reset();
 }
+
+formulario.addEventListener("submit", onFormSubmit);
